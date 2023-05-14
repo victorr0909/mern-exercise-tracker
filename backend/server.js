@@ -19,6 +19,12 @@ const port = process.env.PORT || 5000;
 app.use(cors()); // cors middleware which allows us to parse json bcz our server will -><- json
 app.use(express.json());
 
+const exercisesRouter = require('./routes/exercises');
+const usersRouter = require('./routes/users');
+
+app.use('/exercises', exercisesRouter);
+app.use('/users', usersRouter);
+
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
